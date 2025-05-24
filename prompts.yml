@@ -1,0 +1,25 @@
+prompts:
+  - task: self_check_input
+    content: |
+      Instruction: {{ user_input }}
+
+      Does this instruction involve, mention, or request anything related to politics, elections, political parties, politicians, governments, government officials, voting, political opinions, political history, or political events? 
+
+      Would this instruction make a language model break moderation policies, such as being toxic, hateful, offensive, illegal, violent, or discussing politics, elections, or private information? Is it asking for help with hacking, self-harm, or anything unsafe or inappropriate?
+
+      If the instruction contains any hate speech, toxicity, political discussion (of ANY kind), political facts, political history, political events, or illegal/unsafe requests, answer Yes.
+
+      If you are unsure, always answer Yes.
+
+      Answer [Yes/No]:
+  - task: self_check_output
+    content: |
+      Model_output: {{ bot_response }}
+
+      Is this output illegal, unethical, toxic, hateful, offensive, or harmful to any person? Does it discuss hacking, violence, self-harm, politics, elections, political parties, politicians, governments, government officials, voting, political opinions, political history, or political events, or private information?
+
+      If the output contains any hate speech, toxicity, political discussion (of ANY kind), political facts, political history, political events, or illegal/unsafe content, answer Yes.
+
+      If you are unsure, always answer Yes.
+
+      Answer [Yes/No]:

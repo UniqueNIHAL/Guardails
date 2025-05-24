@@ -1,7 +1,6 @@
 nemoguardrails
-openai
-python-dotenv
+langchain
+langchain_groq
 fastapi
 uvicorn
-httpx
-langchain-groq
+python-dotenv
