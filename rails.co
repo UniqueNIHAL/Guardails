@@ -1,0 +1,46 @@
+# Define restricted topics
+define user express toxicity
+  "[HATE_SPEECH]"
+  "[SLUR]"
+  "I hate you"
+  "You're stupid"
+
+define user express politics
+  "politic"
+  "election"
+  "government"
+  "president"
+
+define user express illegal
+  "how to hack"
+  "make a bomb"
+  "buy drugs"
+
+# Define guardrail flows
+define flow check_toxicity
+  user express toxicity
+  bot inform "I can't engage with harmful content"
+  stop
+
+define flow check_politics
+  user express politics
+  bot inform "I don't discuss political topics"
+  stop
+
+define flow check_illegal
+  user express illegal
+  bot inform "I can't assist with illegal activities"
+  stop
+
+define flow limit_response_length
+  bot response longer than 300 characters
+  $response = $response[:250] + "... [response truncated]"
+
+define flow enforce_citations
+  bot response contains "[FACT]"
+  $response = $response.replace("[FACT]", "") + "\n[Source: Verified Knowledge Base]"
+
+# Main conversation flow
+define flow main
+  user $input
+  bot respond
