@@ -1,0 +1,7 @@
+nemoguardrails
+openai
+python-dotenv
+fastapi
+uvicorn
+httpx
+langchain-groq
